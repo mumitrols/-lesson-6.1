@@ -12,11 +12,7 @@ public class StatsService {
 
     //2. Вычислет среднюю сумму продаж
     public float meanSalesAmount(float[] sellings) {
-        float sum = 0;
-        for (float selling : sellings) {
-            sum += selling;
-        }
-        return sum / 12;
+        return sumAllSales(sellings) / 12;
     }
 
     //3. Поиск номера месяца, в котором был пик продаж (осуществлены продажи на максимальную сумму)
@@ -47,12 +43,8 @@ public class StatsService {
 
     //5. Вычисляет кол-во месяцев, в которых продажи были ниже среднего
     public int numberMonthsBelowAverageSales(float[] sellings) {
-        float sum = 0;
         int countMonth = 0;
-        for (float selling : sellings) {
-            sum += selling;
-        }
-        float average = sum / 12;
+        float average = meanSalesAmount(sellings);
         for (float selling : sellings) {
             if (selling < average) {
                 countMonth++;
@@ -63,12 +55,8 @@ public class StatsService {
 
     //6. Вычисляет кол-во месяцев, в которых продажи были выше среднего
     public int numberMonthsAboveAverageSales(float[] sellings) {
-        float sum = 0;
         int countMonth = 0;
-        for (float selling : sellings) {
-            sum += selling;
-        }
-        float average = sum / 12;
+        float average = meanSalesAmount(sellings);
         for (float selling : sellings) {
             if (selling > average) {
                 countMonth ++;
