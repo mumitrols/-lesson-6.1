@@ -50,7 +50,7 @@ class StatsServiceTest {
         StatsService statService = new StatsService();
         float[] sellings = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         float expected = (float) 5;
-        int actual = statService.numberMonthsBelowAverageSales(sellings);
+        int actual = statService.numberMonthsAboveAverageSales(sellings);
         assertEquals(expected, actual);
     }
 }
